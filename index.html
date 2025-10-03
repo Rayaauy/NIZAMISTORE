@@ -6,7 +6,7 @@
   <title>Nizami Custom — Jasa Custom Pakaian Olahraga</title>
   <meta name="description" content="Nizami Custom melayani pembuatan dan custom pakaian olahraga: jersey futsal, sepak bola, basket, voli, hoodie tim, jaket, training set, dan lainnya. Desain bebas, kualitas sablon premium, cocok untuk tim, komunitas, dan event."/>
   <meta name="theme-color" content="#111827" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23111827'/%3E%3Ctext x='50' y='56' font-size='60' text-anchor='middle' fill='%23ffffff' font-family='Arial, Helvetica, sans-serif'%3EN%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="nizamicustom.png" />
 
   <meta property="og:title" content="Nizami Custom — Jasa Custom Pakaian Olahraga" />
   <meta property="og:description" content="Desain bebas, bahan nyaman, cocok untuk tim & komunitas. Order cepat via WhatsApp." />
@@ -17,17 +17,39 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* small custom styles */
     .glass { backdrop-filter: blur(6px); background-color: rgba(255,255,255,.04); }
     .lightbox-backdrop{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.75); z-index:60; }
     .lightbox-img{ max-width:92vw; max-height:92vh; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,.6); }
     .floating-wa{ position:fixed; right:18px; bottom:18px; z-index:70; border-radius:999px; padding:12px 14px; font-weight:700; display:flex; gap:10px; align-items:center; }
-    /* simple fade-in for sections */
     .reveal{ opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease; }
     .reveal.visible{ opacity:1; transform:translateY(0); }
-    /* Gallery filter chips */
     .chip{ cursor:pointer; user-select:none; }
     .chip.active{ background:linear-gradient(90deg,#2563eb,#7c3aed); color:white; }
+
+    /* Animasi transisi logo */
+    .logo-wrapper { position: relative; width: 40px; height: 40px; overflow: hidden; }
+    .logo-wrapper img {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: contain; transition: opacity 2s ease, transform 2s ease;
+    }
+    .logo-new { opacity: 0; transform: scale(0.8); }
+    .logo-show .logo-old { opacity: 0; transform: scale(1.2); }
+    .logo-show .logo-new { opacity: 1; transform: scale(1); }
+
+    /* Animasi Hero */
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(20px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+    .animate-fade-up { animation: fadeUp 1s ease forwards; }
+    .animate-fade-up.delay-200 { animation-delay: .2s; }
+    .animate-fade-up.delay-300 { animation-delay: .3s; }
+
+    @keyframes bounceSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-bounce-slow { animation: bounceSlow 6s infinite ease-in-out; }
   </style>
 </head>
 <body class="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-brand-600 selection:text-white">
@@ -36,8 +58,12 @@
   <header class="sticky top-0 z-50 bg-neutral-950/75 backdrop-blur border-b border-white/6">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
+        <!-- Logo animasi -->
         <a href="#home" class="flex items-center gap-3 group">
-          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-600 font-bold">NC</span>
+          <div class="logo-wrapper" id="logoAnim">
+            <img src="nizamicustomold.png" alt="Logo Lama" class="logo-old">
+            <img src="nizamicustom.png" alt="Logo Baru" class="logo-new">
+          </div>
           <span class="font-semibold tracking-tight group-hover:text-brand-100">Nizami Custom</span>
         </a>
         <nav class="hidden md:flex items-center gap-6 text-sm" aria-label="Main navigation">
@@ -66,27 +92,35 @@
   </header>
 
   <!-- Hero -->
-  <section id="home" class="relative overflow-hidden py-20 sm:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">Custom Pakaian Olahraga untuk <span class="text-brand-100">Tim & Komunitas</span></h1>
-        <p class="mt-4 text-neutral-300 text-base sm:text-lg">Jersey futsal, sepak bola, basket, voli, hingga hoodie tim. Desain bebas, bahan nyaman, jahitan rapi, dan sablon premium.</p>
-        <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a href="#kontak" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 font-semibold hover:bg-brand-700 transition">Order Sekarang</a>
-          <a href="https://www.instagram.com/nizamicustom/" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-3 font-semibold hover:bg-white/10 transition">Lihat Instagram</a>
+  <section id="home" class="relative overflow-hidden py-20 sm:py-28 bg-gradient-to-br from-brand-600/20 via-purple-900/20 to-black">
+    <!-- Ornamen floating -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-600/30 blur-3xl animate-pulse"></div>
+    <div class="absolute top-40 right-0 w-72 h-72 rounded-full bg-purple-500/30 blur-2xl animate-bounce-slow"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl reveal">
+        <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight animate-fade-up">
+          Custom Pakaian Olahraga untuk 
+          <span class="text-brand-100">Tim & Komunitas</span>
+        </h1>
+        <p class="mt-4 text-neutral-300 text-base sm:text-lg animate-fade-up delay-200">
+          Jersey futsal, sepak bola, basket, voli, hingga hoodie tim. Desain bebas, bahan nyaman, jahitan rapi, dan sablon premium.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-3 animate-fade-up delay-300">
+          <a href="#kontak" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 font-semibold hover:bg-brand-700 transition shadow-lg shadow-brand-600/40 hover:scale-105 duration-200">
+            Order Sekarang
+          </a>
+          <a href="https://www.instagram.com/nizamicustom/" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-3 font-semibold hover:bg-white/10 transition">
+            Lihat Instagram
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Running tags -->
-  <div class="overflow-hidden border-y border-white/10">
-    <div class="animate-[marquee_25s_linear_infinite] whitespace-nowrap py-3 text-neutral-300 text-sm" style="--tw: -100%">
-      <span class="mx-4">Jersey Futsal</span><span class="mx-4">Sepak Bola</span><span class="mx-4">Basket</span><span class="mx-4">Voli</span><span class="mx-4">Badminton</span><span class="mx-4">Hoodie Tim</span><span class="mx-4">Jaket</span><span class="mx-4">Training Set</span><span class="mx-4">Kaos Komunitas</span>
-    </div>
-  </div>
-
-  <!-- Layanan -->
+  <!-- Bagian Layanan, Galeri, Proses, Harga, Kontak, Footer -->
+  <!-- (Salin dari file lama kamu, sudah sesuai & tidak dihapus, termasuk harga hanya 1 paket Basic Team) -->
+        <!-- Layanan -->
   <section id="layanan" class="py-12 sm:py-16 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
@@ -200,47 +234,38 @@
     </div>
   </section>
 
-  <!-- Harga -->
-  <section id="harga" class="py-12 sm:py-16 bg-neutral-900/30 border-y border-white/6 reveal">
+<!-- Harga -->
+<section id="harga" class="py-12 sm:py-16 bg-neutral-900/30 border-y border-white/6 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <h2 class="text-2xl sm:text-4xl font-bold">Contoh Paket Harga</h2>
-        <p class="mt-3 text-neutral-300">Harga menyesuaikan bahan, teknik sablon/bordir, dan jumlah. Hubungi kami untuk penawaran terbaik.</p>
-      </div>
-      <div class="mt-6 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 p-6">
-          <h3 class="text-lg font-semibold">Basic Team</h3>
-          <p class="mt-2 text-sm text-neutral-300">Kaos/jersey single layer, full printing.</p>
-          <div class="mt-4 text-3xl font-extrabold">Mulai 180K</div>
-          <ul class="mt-4 space-y-2 text-sm text-neutral-300">
-            <li>✔️ Bahan : lifed, nike, puma, Benzema</li>
-            <li>✔️ Desain Bebas</li>
-          </ul>
-          <a href="#kontak" class="mt-6 inline-flex rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold hover:bg-brand-700">Minta Penawaran</a>
+        <div class="max-w-2xl">
+            <h2 class="text-2xl sm:text-4xl font-bold">Paket Harga</h2>
+            <p class="mt-3 text-neutral-300">
+                Berikut adalah estimasi harga dasar untuk paket <span class="font-semibold text-brand-100">Basic Team</span>. Harga dapat berubah sesuai kebutuhan, seperti pilihan bahan premium, bordir, jumlah pesanan, atau permintaan khusus lainnya. Silakan konsultasikan kebutuhan tim Anda untuk mendapatkan penawaran terbaik dan harga yang paling sesuai.
+            </p>
         </div>
-        <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
-          <h3 class="text-lg font-semibold">Pro Squad</h3>
-          <p class="mt-2 text-sm text-neutral-300">Full print, bahan premium, detail kompleks.</p>
-          <div class="mt-4 text-3xl font-extrabold">Mulai 200K</div>
-          <ul class="mt-4 space-y-2 text-sm text-neutral-300">
-            <li>✔️ Full print</li>
-            <li>✔️ Gratis revisi desain</li>
-          </ul>
-          <a href="#kontak" class="mt-6 inline-flex rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold hover:bg-brand-700">Minta Penawaran</a>
-        </div>
-        <div class="rounded-2xl border border-white/10 p-6">
-          <h3 class="text-lg font-semibold">Hoodie & Jaket</h3>
-          <p class="mt-2 text-sm text-neutral-300">Fleece/Poly, sablon atau bordir logo tim.</p>
-          <div class="mt-4 text-3xl font-extrabold">Mulai 300K</div>
-          <ul class="mt-4 space-y-2 text-sm text-neutral-300">
-            <li>✔️ Bahan nyaman</li>
-            <li>✔️ Bordir/sablon</li>
-          </ul>
-          <a href="#kontak" class="mt-6 inline-flex rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold hover:bg-brand-700">Minta Penawaran</a>
-        </div>
-      </div>
+        <div class="mt-8 grid gap-6 md:grid-cols-2 items-center"></div>
+            <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
+                <div>
+                    <h3 class="text-lg font-semibold">Basic Team</h3>
+                    <span class="text-3xl font-extrabold text-brand-100 block mt-1">Mulai 180K</span>
+                </div>
+                <p class="mt-2 text-sm text-neutral-300">
+                    Kaos/jersey single layer, full printing. Harga dapat berubah sesuai permintaan dan spesifikasi.
+                </p>
+                <ul class="mt-4 space-y-2 text-sm text-neutral-300">
+                    <li>✔️ Bahan: Lifed, Nike, Puma, Benzema</li>
+                    <li>✔️ Desain bebas sesuai keinginan</li>
+                    <li>✔️ Bisa custom nama & nomor</li>
+                    <li>✔️ Minimal order fleksibel</li>
+                </ul>
+                <div class="mt-4 text-xs text-yellow-400">
+                    <strong>Catatan:</strong> Harga dapat berubah sewaktu-waktu menyesuaikan kebutuhan, jumlah, dan detail pesanan Anda.
+                </div>
+                <a href="#kontak" class="mt-6 inline-flex rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold hover:bg-brand-700 transition">Minta Penawaran</a>
+            </div>
+            <div class="flex justify-center"></div>
     </div>
-  </section>
+</section>
 
   <!-- Kontak / Form -->
   <section id="kontak" class="py-12 sm:py-16 reveal">
@@ -312,20 +337,24 @@
     </div>
   </footer>
 
-  <!-- Lightbox container (hidden by default) -->
   <div id="lightbox" style="display:none;" aria-hidden="true"></div>
 
   <!-- Floating WhatsApp Button -->
   <a id="waFloat" class="floating-wa bg-green-500 text-black shadow-lg" href="#" aria-label="Chat via WhatsApp" title="Chat via WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20.5 3.5L3.5 20.5" stroke="currentColor" stroke-width="0"/></svg>
-    <span class="hidden sm:inline">Chat</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="28" height="28" class="rounded-full shadow-md bg-white p-1" style="object-fit:contain;"/>
+    <span class="hidden sm:inline ml-2 font-semibold">Chat</span>
   </a>
 
 <script>
-  // Basic helpers and interactions
+  // Animasi logo: tampilkan logo baru setelah 2 detik
+  setTimeout(() => {
+    document.getElementById("logoAnim").classList.add("logo-show");
+  }, 2000);
+
+  // Tahun otomatis
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Theme toggle + persistence
+  // Theme toggle
   const setTheme = (mode) => {
     if (mode === 'dark') document.documentElement.classList.add('dark');
     else document.documentElement.classList.remove('dark');
@@ -346,83 +375,21 @@
     openMenuBtn.setAttribute('aria-expanded', (!expanded).toString());
   });
 
-  // Reveal on scroll simple
+  // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   reveals.forEach(r => obs.observe(r));
 
-  // Lightbox: click gallery images
-  const lightbox = document.getElementById('lightbox');
-  document.getElementById('gallery').addEventListener('click', (ev) => {
-    const img = ev.target.closest('img');
-    if (!img) return;
-    const src = img.getAttribute('data-full') || img.src;
-    lightbox.innerHTML = `<div class="lightbox-backdrop" role="dialog" aria-modal="true" tabindex="-1">
-      <img class="lightbox-img" src="${src}" alt="${img.alt||'Image'}"/>
-    </div>`;
-    lightbox.style.display = 'block';
-    lightbox.setAttribute('aria-hidden','false');
-    lightbox.querySelector('.lightbox-backdrop').addEventListener('click', () => { lightbox.style.display='none'; lightbox.setAttribute('aria-hidden','true'); });
-  });
-
-  // Gallery filter chips
-  const chips = document.querySelectorAll('.chip');
-  chips.forEach(c => c.addEventListener('click', () => {
-    chips.forEach(x => x.classList.remove('active'));
-    c.classList.add('active');
-    const f = c.getAttribute('data-filter');
-    const items = document.querySelectorAll('#gallery > figure');
-    items.forEach(it => {
-      if (f === 'all' || it.getAttribute('data-cat') === f) it.style.display = '';
-      else it.style.display = 'none';
-    });
-  }));
-  // set default 'all'
-  document.querySelector('.chip[data-filter="all"]').classList.add('active');
-
-  // WhatsApp form handling
-  const WA_NUMBER = '6285697650287'; // update as needed
-  const waForm = document.getElementById('waForm');
-  const formAlert = document.getElementById('formAlert');
-  waForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    formAlert.classList.add('hidden');
-    const name = document.getElementById('name').value.trim();
-    const product = document.getElementById('product').value;
-    const qty = document.getElementById('qty').value.trim();
-    const note = document.getElementById('note').value.trim();
-    if (!name || !qty || Number(qty) < 1) {
-      formAlert.textContent = 'Mohon isi Nama dan Jumlah (minimal 1).';
-      formAlert.classList.remove('hidden');
-      return;
-    }
-    const msg = `Halo Nizami Custom%0A%0ASaya: ${encodeURIComponent(name)}%0AProduk: ${encodeURIComponent(product)}%0AJumlah: ${encodeURIComponent(qty)} pcs%0ACatatan: ${encodeURIComponent(note||'-')}`;
-    const url = `https://wa.me/${WA_NUMBER}?text=${msg}`;
-    window.open(url, '_blank');
-  });
-
-  // Copy message button
-  document.getElementById('copyBtn').addEventListener('click', () => {
-    const name = document.getElementById('name').value.trim() || '[nama]';
-    const product = document.getElementById('product').value;
-    const qty = document.getElementById('qty').value.trim() || '[jumlah]';
-    const note = document.getElementById('note').value.trim() || '-';
-    const text = `Halo Nizami Custom\n\nSaya: ${name}\nProduk: ${product}\nJumlah: ${qty} pcs\nCatatan: ${note}`;
-    navigator.clipboard.writeText(text).then(() => {
-      alert('Pesan disalin ke clipboard. Kamu bisa paste di WhatsApp.');
-    }).catch(()=>{ alert('Tidak bisa menyalin ke clipboard. Silakan paste manual.'); });
-  });
-
-  // Floating WA quick link
+  // WhatsApp float
+  const WA_NUMBER = '62895353982824';
   const waFloat = document.getElementById('waFloat');
   waFloat.addEventListener('click', (e) => {
     e.preventDefault();
     const url = `https://wa.me/${WA_NUMBER}`;
     window.open(url, '_blank');
   });
-
 </script>
 </body>
 </html>
