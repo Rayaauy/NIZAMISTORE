@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -119,9 +118,7 @@
     </div>
   </section>
 
-  <!-- Bagian Layanan, Galeri, Proses, Harga, Kontak, Footer -->
-  <!-- (Salin dari file lama kamu, sudah sesuai & tidak dihapus, termasuk harga hanya 1 paket Basic Team) -->
-        <!-- Layanan -->
+  <!-- Layanan -->
   <section id="layanan" class="py-12 sm:py-16 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
@@ -130,12 +127,12 @@
       </div>
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <article class="glass rounded-2xl border border-white/10 p-6">
-          <img class="h-44 w-full object-cover rounded-xl" src="dofafa.png" alt="Contoh jersey basket DOFAFA"/>
+          <img class="h-44 w-full object-cover rounded-xl" src="bola.jpg" alt="Contoh jersey basket DOFAFA"/>
           <h3 class="mt-4 text-lg font-semibold">Jersey Sepak Bola / Futsal</h3>
           <p class="mt-2 text-sm text-neutral-300">Full print, nameset lengkap, breathable fabric (Dry-Fit).</p>
         </article>
         <article class="glass rounded-2xl border border-white/10 p-6">
-          <img class="h-44 w-full object-cover rounded-xl" src="sangpuma.png" alt="Contoh jersey basket SangPuma"/>
+          <img class="h-44 w-full object-cover rounded-xl" src="basket.jpg" alt="Contoh jersey basket SangPuma"/>
           <h3 class="mt-4 text-lg font-semibold">Jersey Basket</h3>
           <p class="mt-2 text-sm text-neutral-300">Model tanktop/set, sablon rapi, ukuran lengkap S–XXXL.</p>
         </article>
@@ -148,60 +145,130 @@
     </div>
   </section>
 
-  <!-- Galeri w/ filter + lightbox -->
-  <section id="galeri" class="py-12 sm:py-16 bg-neutral-900/30 border-y border-white/6 reveal">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between gap-4 flex-wrap">
+  <!-- Galeri w/ filter + lightbox + view more -->
+  <section id="galeri" class="py-8 sm:py-12 bg-neutral-900/30 border-y border-white/6 reveal">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-2 flex-wrap">
         <div>
-          <h2 class="text-2xl sm:text-4xl font-bold">Galeri</h2>
-          <p class="mt-3 text-neutral-300 max-w-xl">Contoh hasil produksi. Klik untuk melihat lebih besar dan keterangan.</p>
+          <h2 class="text-xl sm:text-3xl font-bold">Galeri</h2>
+          <p class="mt-2 text-neutral-300 max-w-xl text-sm sm:text-base">Contoh hasil produksi. Klik untuk melihat lebih besar dan keterangan.</p>
         </div>
-        <div class="flex gap-2 items-center">
-          <span class="text-xs text-neutral-400 mr-2">Filter:</span>
-          <div id="filters" class="flex gap-2">
-            <button class="chip px-3 py-1 rounded-full border border-white/6 text-xs" data-filter="all">Semua</button>
-            <button class="chip px-3 py-1 rounded-full border border-white/6 text-xs" data-filter="basket">Basket</button>
-            <button class="chip px-3 py-1 rounded-full border border-white/6 text-xs" data-filter="polo">Polo</button>
-            <button class="chip px-3 py-1 rounded-full border border-white/6 text-xs" data-filter="others">Lainnya</button>
+        <div class="flex gap-1 items-center mt-2 sm:mt-0">
+          <span class="text-xs text-neutral-400 mr-1">Filter:</span>
+          <div id="filters" class="flex gap-1">
+            <button class="chip px-2 py-1 rounded-full border border-white/6 text-xs" data-filter="all">Semua</button>
+            <button class="chip px-2 py-1 rounded-full border border-white/6 text-xs" data-filter="basket">Basket</button>
+            <button class="chip px-2 py-1 rounded-full border border-white/6 text-xs" data-filter="polo">Polo</button>
+            <button class="chip px-2 py-1 rounded-full border border-white/6 text-xs" data-filter="others">Lainnya</button>
           </div>
         </div>
       </div>
 
-      <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3" id="gallery">
-        <figure data-cat="basket" class="group relative cursor-pointer">
-          <img class="h-44 w-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105" src="dofafa.png" alt="Jersey DOFAFA hitam ungu" data-full="dofafa.png" />
-          <figcaption class="absolute bottom-2 left-2 bg-black/60 text-xs px-2 py-1 rounded">DOFAFA • Basket</figcaption>
+      <!-- Galeri grid dengan rasio gambar 3:4 -->
+      <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2" id="gallery">
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="rl2sangpuma.jpeg" alt="Jersey basket custom" data-full="basket.png" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">SangPuma • Basket</figcaption>
         </figure>
-
-        <figure data-cat="basket" class="group relative cursor-pointer">
-          <img class="h-44 w-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105" src="sangpuma.png" alt="SangPuma kit" data-full="sangpuma.png" />
-          <figcaption class="absolute bottom-2 left-2 bg-black/60 text-xs px-2 py-1 rounded">SangPuma • Basket</figcaption>
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="rldofafa.jpeg" alt="Jersey basket custom" data-full="basketpng" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">Dofafa • Basket</figcaption>
         </figure>
-
-        <figure data-cat="basket" class="group relative cursor-pointer">
-          <img class="h-44 w-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105" src="sangpuma2.png" alt="SangPuma desain 2" data-full="sangpuma2.png" />
-          <figcaption class="absolute bottom-2 left-2 bg-black/60 text-xs px-2 py-1 rounded">SangPuma • Basket</figcaption>
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="rlkanada.jpeg" alt="Jersey basket custom" data-full="basket.png" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">Kanada • Basket</figcaption>
         </figure>
-
-        <figure data-cat="others" class="group relative cursor-pointer">
-          <img class="h-44 w-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105" src="smanba.png" alt="SMANBA team jersey" data-full="smanba.png" />
-          <figcaption class="absolute bottom-2 left-2 bg-black/60 text-xs px-2 py-1 rounded">SMANBA • Team</figcaption>
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="suitsmaba.jpeg" alt="Jersey basket custom" data-full="basketpng" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">SMANBA • Basket</figcaption>
         </figure>
-
-        <figure data-cat="others" class="group relative cursor-pointer">
-          <img class="h-44 w-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105" src="unas.png" alt="UNAS custom kit" data-full="unas.png" />
-          <figcaption class="absolute bottom-2 left-2 bg-black/60 text-xs px-2 py-1 rounded">UNAS • Team</figcaption>
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="rl2smaba.jpeg" alt="Jersey basket custom" data-full="basket.png" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">SMANBA • Basket</figcaption>
         </figure>
-
-        <figure data-cat="polo" class="group relative cursor-pointer">
-          <img class="h-44 w-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105" src="poloshirt.png" alt="Polo shirt custom" data-full="poloshirt.png" />
-          <figcaption class="absolute bottom-2 left-2 bg-black/60 text-xs px-2 py-1 rounded">Polo • Apparel</figcaption>
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="rl3sangpuma.jpeg" alt="Jersey basket custom" data-full="basket.png" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">SangPuma • Basket</figcaption>
         </figure>
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="rlsangpuma.jpeg" alt="Jersey basket custom" data-full="basket.png" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">SangPuma • Basket</figcaption>
+        </figure>
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="rlsmaba.jpeg" alt="Jersey basket custom" data-full="basket.png" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">SMANBA • Basket</figcaption>
+        </figure>
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="rlunas.jpeg" alt="Jersey basket custom" data-full="basket.png" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">UNAS • Basket</figcaption>
+        </figure>
+        <figure data-cat="basket" class="group relative cursor-pointer aspect-[3/4] overflow-hidden">
+          <img class="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105" src="rl4sangpuma.jpeg" alt="Jersey basket custom" data-full="basket.png" />
+          <figcaption class="absolute bottom-1 left-1 bg-black/60 text-[10px] px-1.5 py-0.5 rounded">SangPuma • Basket</figcaption>
+        </figure>
+      </div>
 
-        <!-- Add more items as needed -->
+      <div class="flex justify-center mt-4">
+        <button id="viewMoreGaleri" class="rounded-xl bg-brand-600 px-4 py-2 text-sm font-semibold hover:bg-brand-700 transition">Lihat Lebih Banyak</button>
       </div>
     </div>
   </section>
+
+<script>
+  // View More Galeri + Filter
+  (function() {
+    const gallery = document.getElementById('gallery');
+    if (!gallery) return;
+    const figures = Array.from(gallery.children);
+    const viewMoreBtn = document.getElementById('viewMoreGaleri');
+    let shown = 4;
+
+    function updateGallery() {
+      figures.forEach((fig, i) => {
+        fig.style.display = (i < shown) ? '' : 'none';
+      });
+      if (shown >= figures.length) {
+        viewMoreBtn.style.display = 'none';
+      } else {
+        viewMoreBtn.style.display = '';
+      }
+    }
+    updateGallery();
+
+    viewMoreBtn.addEventListener('click', function() {
+      shown += 4;
+      updateGallery();
+    });
+
+    // Filter galeri
+    const filterBtns = document.querySelectorAll('#filters .chip');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        // show first X items matching filter
+        const matches = figures.filter(fig => {
+          const cat = fig.getAttribute('data-cat');
+          return filter === 'all' || cat === filter;
+        });
+        // hide all first
+        figures.forEach(fig => fig.style.display = 'none');
+        // show up to 'shown' matches
+        matches.forEach((fig, i) => {
+          if (i < shown) fig.style.display = '';
+        });
+        // decide viewMoreBtn visibility
+        if (matches.length > shown) viewMoreBtn.style.display = '';
+        else viewMoreBtn.style.display = 'none';
+      });
+    });
+
+    // set default active filter (Semua)
+    const defaultChip = document.querySelector('#filters .chip[data-filter="all"]');
+    if (defaultChip) defaultChip.classList.add('active');
+  })();
+</script>
 
   <!-- Proses -->
   <section id="proses" class="py-12 sm:py-16 reveal">
@@ -239,22 +306,17 @@
 <section id="harga" class="py-12 sm:py-16 bg-neutral-900/30 border-y border-white/6 reveal">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl">
-            <h2 class="text-2xl sm:text-4xl font-bold">Paket Harga</h2>
-            <p class="mt-3 text-neutral-300">
-                Berikut adalah estimasi harga dasar untuk paket <span class="font-semibold text-brand-100">Basic Team</span>. Harga dapat berubah sesuai kebutuhan, seperti pilihan bahan premium, bordir, jumlah pesanan, atau permintaan khusus lainnya. Silakan konsultasikan kebutuhan tim Anda untuk mendapatkan penawaran terbaik dan harga yang paling sesuai.
-            </p>
         </div>
         <div class="mt-8 grid gap-6 md:grid-cols-2 items-center"></div>
             <div class="rounded-2xl border border-white/10 p-6 bg-white/5">
                 <div>
-                    <h3 class="text-lg font-semibold">Basic Team</h3>
-                    <span class="text-3xl font-extrabold text-brand-100 block mt-1">Mulai 180K</span>
+                    <span class="text-3xl font-extrabold text-brand-100 block mt-1">Harga Fleksibel</span>
                 </div>
                 <p class="mt-2 text-sm text-neutral-300">
                     Kaos/jersey single layer, full printing. Harga dapat berubah sesuai permintaan dan spesifikasi.
                 </p>
                 <ul class="mt-4 space-y-2 text-sm text-neutral-300">
-                    <li>✔️ Bahan: Lifed, Nike, Puma, Benzema</li>
+                    <li>✔️ Bahan: Lifed, Nike, Puma, Benzema, dll</li>
                     <li>✔️ Desain bebas sesuai keinginan</li>
                     <li>✔️ Bisa custom nama & nomor</li>
                     <li>✔️ Minimal order fleksibel</li>
@@ -267,6 +329,63 @@
             <div class="flex justify-center"></div>
     </div>
 </section>
+
+<!-- Bahan Jersey -->
+<section id="bahan" class="py-12 sm:py-16 bg-neutral-950 reveal">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-2xl sm:text-4xl font-bold">Jenis & Motif Bahan</h2>
+    <p class="mt-3 text-neutral-300 max-w-2xl mx-auto">
+      Pilihan bahan berkualitas yang bisa kamu gunakan untuk pembuatan jersey. 
+      Semua bahan nyaman, ringan, dan cocok untuk aktivitas olahraga.
+    </p>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      
+      <!-- Embos Straw -->
+      <div class="glass rounded-2xl border border-white/10 p-4">
+        <img src="embosstraw.png" alt="Embos Straw" class="rounded-lg object-cover w-full h-40">
+        <h3 class="mt-3 font-semibold">Embos Straw</h3>
+      </div>
+
+      <!-- Puma -->
+      <div class="glass rounded-2xl border border-white/10 p-4">
+        <img src="puma.png" alt="Puma" class="rounded-lg object-cover w-full h-40">
+        <h3 class="mt-3 font-semibold">Puma</h3>
+      </div>
+
+      <!-- Nike -->
+      <div class="glass rounded-2xl border border-white/10 p-4">
+        <img src="nike.png" alt="Nike" class="rounded-lg object-cover w-full h-40">
+        <h3 class="mt-3 font-semibold">Nike</h3>
+      </div>
+
+      <!-- Serena -->
+      <div class="glass rounded-2xl border border-white/10 p-4">
+        <img src="serena.png" alt="Serena" class="rounded-lg object-cover w-full h-40">
+        <h3 class="mt-3 font-semibold">Serena</h3>
+      </div>
+
+      <!-- Airwalk -->
+      <div class="glass rounded-2xl border border-white/10 p-4">
+        <img src="airwalk.png" alt="Airwalk" class="rounded-lg object-cover w-full h-40">
+        <h3 class="mt-3 font-semibold">Airwalk</h3>
+      </div>
+
+      <!-- Milano -->
+      <div class="glass rounded-2xl border border-white/10 p-4">
+        <img src="milano.png" alt="Milano" class="rounded-lg object-cover w-full h-40">
+        <h3 class="mt-3 font-semibold">Milano</h3>
+      </div>
+
+      <!-- Embos Topo -->
+      <div class="glass rounded-2xl border border-white/10 p-4">
+        <img src="embostopo.png" alt="Embos Topo" class="rounded-lg object-cover w-full h-40">
+        <h3 class="mt-3 font-semibold">Embos Topo</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
   <!-- Kontak / Form -->
   <section id="kontak" class="py-12 sm:py-16 reveal">
@@ -349,11 +468,13 @@
 <script>
   // Animasi logo: tampilkan logo baru setelah 2 detik
   setTimeout(() => {
-    document.getElementById("logoAnim").classList.add("logo-show");
+    const logoAnimEl = document.getElementById("logoAnim");
+    if (logoAnimEl) logoAnimEl.classList.add("logo-show");
   }, 2000);
 
   // Tahun otomatis
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // Theme toggle
   const setTheme = (mode) => {
@@ -362,7 +483,8 @@
     localStorage.setItem('theme', mode);
   };
   (function(){ const saved = localStorage.getItem('theme'); if (!saved) setTheme('dark'); else setTheme(saved); })();
-  document.getElementById('themeToggle').addEventListener('click', () => {
+  const themeToggleBtn = document.getElementById('themeToggle');
+  if (themeToggleBtn) themeToggleBtn.addEventListener('click', () => {
     const dark = document.documentElement.classList.contains('dark');
     setTheme(dark ? 'light' : 'dark');
   });
@@ -370,11 +492,13 @@
   // Mobile menu
   const openMenuBtn = document.getElementById('openMenu');
   const mobileMenu = document.getElementById('mobileMenu');
-  openMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    const expanded = openMenuBtn.getAttribute('aria-expanded') === 'true';
-    openMenuBtn.setAttribute('aria-expanded', (!expanded).toString());
-  });
+  if (openMenuBtn && mobileMenu) {
+    openMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const expanded = openMenuBtn.getAttribute('aria-expanded') === 'true';
+      openMenuBtn.setAttribute('aria-expanded', (!expanded).toString());
+    });
+  }
 
   // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
@@ -384,13 +508,15 @@
   reveals.forEach(r => obs.observe(r));
 
   // WhatsApp float
-  const WA_NUMBER = '62895353982824';
+  const WA_NUMBER = '62895353982824'; // sesuaikan jika perlu
   const waFloat = document.getElementById('waFloat');
-  waFloat.addEventListener('click', (e) => {
-    e.preventDefault();
-    const url = `https://wa.me/${WA_NUMBER}`;
-    window.open(url, '_blank');
-  });
+  if (waFloat) {
+    waFloat.addEventListener('click', (e) => {
+      e.preventDefault();
+      const url = `https://wa.me/${WA_NUMBER}`;
+      window.open(url, '_blank');
+    });
+  }
 </script>
 </body>
 </html>
